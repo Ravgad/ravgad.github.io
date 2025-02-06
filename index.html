@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Proposal</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        #yes, #no {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #yes {
+            background-color: pink;
+            border: none;
+            border-radius: 5px;
+        }
+        #no {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #result {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        #image {
+            display: none;
+            margin-top: 20px;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine?</h1>
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+    <div id="result">Knew you would say yes! ❤️</div>
+    <img id="image" src="https://media.giphy.com/media/3o6ZsYm5QF3IiHhXHa/giphy.gif" alt="Happy" width="200">
+
+    <script>
+        $(document).ready(function() {
+            let yesSize = 20;
+            $("#no").click(function() {
+                yesSize += 10;
+                $("#yes").css({
+                    "font-size": yesSize + "px",
+                    "padding": (yesSize / 2) + "px " + (yesSize) + "px"
+                });
+            });
+
+            $("#yes").click(function() {
+                $("h1, #yes, #no").hide();
+                $("#result").show();
+                $("#image").show();
+            });
+        });
+    </script>
+</body>
+</html>
